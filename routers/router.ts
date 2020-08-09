@@ -1,12 +1,12 @@
 import {router,Route} from '../core/Router___.ts'
-import {gets} from '../controller/c.ts'
+import {gets,data} from '../controller/c.ts'
 import {BaseUrl} from '../core/app___.ts'
 import View from '../core/view___.ts'
 
 Route.Get("/",(ctx)=>{
     return View.make(ctx,"index")
 })
-
+Route.Get("/data",data)
 Route.Get("/cek/:id",gets)
 
 Route.Post("/cek",(ctx)=>{
@@ -23,6 +23,5 @@ Route.Delete("/cek",(ctx)=>{
 Route.Get("/view",async(ctx)=>{
     ctx.response.body= `${BaseUrl(ctx)}/`
 })
-console.log(Route.ar);
 
 export default router
