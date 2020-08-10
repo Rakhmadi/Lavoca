@@ -1,6 +1,12 @@
 import DB from '../core/database___.ts'
 import View from '../core/view___.ts'
 
+/**
+ * 
+ * @param ctx 
+ * 
+ */
+
 const gets =async(ctx:any)=>{
     return View.make(ctx,"show",{
         params:ctx.params.id
