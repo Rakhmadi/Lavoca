@@ -1,12 +1,16 @@
 var Conf = {
     DB:{
         CONF:{
-            TYPE:"mysql",
+            TYPE:"mongodb",
             HOST:"127.0.0.1",
             PORT:3306,
             DATABASE:"test",
             USERNAME:"root",
-            PASSWORD:""
+            PASSWORD:"",
+            MONGO:{
+                _URI:"mongodb://localhost:27017/?readPreference=primary&ssl=false",
+                _DB:"qwerty"
+            }
         }
     },
     PORT:8000,

@@ -17,6 +17,16 @@ class Routers{
             Method:"GET",
             Path:url
         })
+        router.get('/nn',async(ctx,next)=>{
+            if (ctx.request.url.pathname == "/nns") {
+                ctx.response.body="dasf"
+            } else {
+                
+                await next()
+                ctx.response.status=401
+                ctx.response.body="sddfdddddddddddddddddddd"
+            }
+        })
         this.cekpath.push(url)
             router.get("/route",(ctx)=>{
               if (CONF.SHOW_ROUTE) {

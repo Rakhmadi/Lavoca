@@ -11,7 +11,10 @@ app.use(router.routes())
 app.use(router.allowedMethods())
 app.use(Asset)
 
-console.log(clc.red.text("༼ つ ◕_◕ ༽つ"));
+console.log(clc.blue.text("༼ つ ◕_◕ ༽つ"));
+console.log(clc.blue.text("╔═══════════════════════╗"));
+console.log(clc.blue.text("║  Enjoy it             ║ "));
+console.log(clc.blue.text("╚═══════════════════════╝"));
 console.log(clc.red.text(`http://localhost:${port}/`))
 
 await app.listen({ port });

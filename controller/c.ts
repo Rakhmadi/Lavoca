@@ -7,7 +7,14 @@ const gets =async(ctx:any)=>{
     })
 }
 const data =async(ctx:any)=>{
-    ctx.response.body= await DB.query("SELECT * FROM siswa")
+    interface DataSchema {
+        _id:{$oid:string};
+        created:string;
+        name:string
+    }
+    const MyData = await DB.collection("mydata")
+    const _db:DataSchema = await MyData.find( {} )
+    ctx.response.body= _db
     
 }
 export {gets,data}
