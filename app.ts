@@ -1,12 +1,15 @@
 import { Application, } from "https://deno.land/x/oak/mod.ts";
+import { oakCors } from "https://deno.land/x/cors/mod.ts";
 import {Asset} from './core/app___.ts'
 import router from './routers/router.ts'
 import Conf from './config.ts'
 import clc from './core/color/index.ts'
 
+
 const port:number = Conf.PORT
 const app = new Application()
 
+app.use(oakCors()); // Enable CORS for All Routes
 app.use(router.routes())
 app.use(router.allowedMethods())
 app.use(Asset)

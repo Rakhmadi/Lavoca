@@ -3,12 +3,14 @@ import {gets,data} from '../controller/c.ts'
 import {BaseUrl} from '../core/app___.ts'
 import View from '../core/view___.ts'
 
+import { ControllerRoute } from '../core/controller___.ts'
 Route.Get("/",(ctx)=>{
     return View.make(ctx,"index")
-})
+})  
 Route.Get("/data",data)
 Route.Get("/cek/:id",gets)
-
+Route.Get("/df", await ControllerRoute.add("Crud", "show"))
+Route.Get("/check",await ControllerRoute.add("Crud","check"))
 Route.Post("/cek",(ctx)=>{
     ctx.response.body =23423;
 })

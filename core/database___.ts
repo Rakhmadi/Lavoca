@@ -14,7 +14,7 @@ if (Conf.DB.CONF.TYPE == 'mysql') {
      const cl = new MongoClient()
      cl.connectWithUri(Conf.DB.CONF.MONGO._URI)
      DB = cl.database(Conf.DB.CONF.MONGO._DB)
-    console.log(DB);
+     //console.log(DB);
     
 }
 export default DB

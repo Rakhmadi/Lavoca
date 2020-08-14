@@ -32,5 +32,6 @@ let BaseUrl =(ctx:any,uri:any="")=>{
 
 export {
     Asset,
-    BaseUrl
+    BaseUrl,
+    Filesexist
 }

@@ -1,16 +1,17 @@
 import DB from '../core/database___.ts'
 import View from '../core/view___.ts'
-
+import { RouterContext,RouterMiddleware } from "https://deno.land/x/oak/mod.ts";
 /**
  * 
  * @param ctx 
  * 
  */
 
-const gets =async(ctx:any)=>{
+const gets = async (ctx: RouterContext ) => {
     return View.make(ctx,"show",{
         params:ctx.params.id
     })
+    // await next()
 }
 const data =async(ctx:any)=>{
     interface DataSchema {

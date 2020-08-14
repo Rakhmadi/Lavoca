@@ -4,10 +4,12 @@ import View from './view___.ts'
 
 
 const router = new Router();
+
 class Routers{
        
      ar:Array<any>=[]
      cekpath:Array<any>=[]
+     
      public Redirect(ctx:any,redirect:any){
         ctx.response.redirect(redirect)
      }
@@ -17,16 +19,6 @@ class Routers{
             Method:"GET",
             Path:url
         })
-        router.get('/nn',async(ctx,next)=>{
-            if (ctx.request.url.pathname == "/nns") {
-                ctx.response.body="dasf"
-            } else {
-                
-                await next()
-                ctx.response.status=401
-                ctx.response.body="sddfdddddddddddddddddddd"
-            }
-        })
         this.cekpath.push(url)
             router.get("/route",(ctx)=>{
               if (CONF.SHOW_ROUTE) {
@@ -35,6 +27,7 @@ class Routers{
                 ctx.response.body= "Disabled"
               }
             })
+            
     }
     public Post(url:string,callback:((context :RouterContext)=>void)){
         router.post(url,callback)
@@ -68,6 +61,13 @@ class Routers{
         }
         return f            
         }        
+    public ShowRoute(){
+        
+    }
+    public middleware(){
+
+        
+    }
      }
 
 
@@ -75,5 +75,5 @@ const Route = new Routers();
 
 export {
 	router,
-	Route
+    Route,
 }
