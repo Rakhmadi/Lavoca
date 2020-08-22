@@ -15,6 +15,9 @@ var Conf = {
     },
     PORT:8000,
     BASE_URL:"",
+    HOST:"localhost",
     SHOW_ROUTE:true,
 }
+
+
 export default Conf
