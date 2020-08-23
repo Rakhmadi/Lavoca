@@ -41,20 +41,21 @@ class Routers {
     }
     
     public async get(url: string, callback: ((context: RouterContext) => void), ParaMidlew: Array<any> = []) {
+        let uris = this.getUri(url)
         if (this.NMidllewareList == [] ) {
             if (ParaMidlew == []) {
-                router.get(this.getUri(url),await Middleware(ParaMidlew), callback)
+                router.get(uris,await Middleware(ParaMidlew), callback)
             } else {
-                router.get(this.getUri(url), callback)
+                router.get(uris, callback)
             }
         } else {
             const Midlev:Array<any> = this.NMidllewareList.concat(ParaMidlew)
-            router.get(this.getUri(url),await Middleware(Midlev), callback)
+            router.get(uris,await Middleware(Midlev), callback)
         }
         this.ar.push({
             Method:"GET",
-            Path:this.getUri(url)
-        })
+            Path:uris
+        })        
         this.cekpath.push(url)
             router.get("/route",(ctx)=>{
               if (CONF.SHOW_ROUTE) {
@@ -66,57 +67,60 @@ class Routers {
     }
 
     public async post(url: string, callback: ((context: RouterContext) => void), ParaMidlew: Array<any> = []) {
+        let uris = this.getUri(url)
         if (this.NMidllewareList == [] ) {
             if (ParaMidlew == []) {
-                router.post(this.getUri(url),await Middleware(ParaMidlew), callback)
+                router.post(uris,await Middleware(ParaMidlew), callback)
             } else {
-                router.post(this.getUri(url), callback)
+                router.post(uris, callback)
             }
         } else {
             const Midlev:Array<any> = this.NMidllewareList.concat(ParaMidlew)
-            router.post(this.getUri(url),await Middleware(Midlev), callback)
+            router.post(uris,await Middleware(Midlev), callback)
         }
         router.post(url,callback)
         this.ar.push({
             Method:"POST",
-            Path:url
+            Path:uris
         })
 
     }
 
     public async put(url: string, callback: ((context: RouterContext) => void), ParaMidlew: Array<any> = []) {
+        let uris = this.getUri(url)
         if (this.NMidllewareList == [] ) {
             if (ParaMidlew == []) {
-                router.put(this.getUri(url),await Middleware(ParaMidlew), callback)
+                router.put(uris,await Middleware(ParaMidlew), callback)
             } else {
-                router.put(this.getUri(url), callback)
+                router.put(uris, callback)
             }
         } else {
             const Midlev:Array<any> = this.NMidllewareList.concat(ParaMidlew)
-            router.put(this.getUri(url),await Middleware(Midlev), callback)
+            router.put(uris,await Middleware(Midlev), callback)
         }
         router.put(url,callback)
         this.ar.push({
             Method:"PUT",
-            Path:url
+            Path:uris
         })
     }
 
     public async delete(url: string, callback: ((context: RouterContext) => void), ParaMidlew: Array<any> = []) {
+        let uris = this.getUri(url)
         if (this.NMidllewareList == [] ) {
             if (ParaMidlew == []) {
-                router.delete(this.getUri(url),await Middleware(ParaMidlew), callback)
+                router.delete(uris,await Middleware(ParaMidlew), callback)
             } else {
-                router.delete(this.getUri(url), callback)
+                router.delete(uris, callback)
             }
         } else {
             const Midlev:Array<any> = this.NMidllewareList.concat(ParaMidlew)
-            router.delete(this.getUri(url),await Middleware(Midlev), callback)
+            router.delete(uris,await Middleware(Midlev), callback)
         }
         router.delete(url,callback)
         this.ar.push({
             Method:"DELETE",
-            Path:url
+            Path:uris
         })
     }
     public Lmatch(g:any,uri:any,callback:((context :RouterContext)=>void),ParaMidlew: Array<any> = []) {
