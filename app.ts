@@ -5,6 +5,7 @@ import {router} from './routers/router.ts'
 import Conf from './config.ts'
 import * as ink from 'https://deno.land/x/ink/mod.ts'
 import { log } from './core/handel.ts'
+import { DataTypes, Database, Model } from 'https://deno.land/x/denodb/mod.ts';
 
 
 const port:number = Conf.PORT

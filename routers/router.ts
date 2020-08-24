@@ -11,20 +11,22 @@ Route.get("/",(ctx)=>{
 })  
 Route.get("/data",data)
 Route.get("/cek/:id",gets)
-Route.get("/df",await ControllerRoute.add("i", "show"))
+Route.get("/df",await ControllerRoute.add("Crud", "show"))
 
 Route.middleware([example],()=> {
     Route.get('/ns', (ctx) => {
         ctx.response.body= 'dsf'
     },[x,cc,nn])
 })
+
 Route.prefix('/v1',()=>{
     Route.prefix('/name',()=>{
         Route.get('/rakhmadi',(ctx)=>{
-            ctx.response.body = 'rtrtrtrt'
+            ctx.response.body = 'rtrtrtrt' 
         },[x])
     })
 })
+
 Route.get("/b/:id",gets)
 
 

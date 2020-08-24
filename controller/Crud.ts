@@ -2,7 +2,7 @@ import DB from '../core/database___.ts'
 import View from '../core/view___.ts'
 //controller created
 import {Controller} from '../core/controller___.ts'
- class Crud extends Controller{
+ export class Crud extends Controller{
   async show(ctx:any,next:any ) {
     interface DataSchema {
       _id:{$oid:string};
@@ -22,4 +22,3 @@ import {Controller} from '../core/controller___.ts'
     ctx.response.body=ms
   }
  }
- export default Crud
