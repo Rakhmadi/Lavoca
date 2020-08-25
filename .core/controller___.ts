@@ -1,11 +1,11 @@
 
 class Controller{
-     add(controller:string,method:string) {
+     add(controller:string,method:string) { //get controller file
      const SrcFileController = `../controller/${controller}.ts`
       async function Inty(){
        const n =await import(SrcFileController)
        const InstanceController = new n[controller]();
-        const MethodOfController = InstanceController[method]
+        const MethodOfController =await InstanceController[method]
         return MethodOfController
        }
        return Inty()

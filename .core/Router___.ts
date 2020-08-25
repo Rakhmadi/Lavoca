@@ -1,13 +1,10 @@
-import { Router, RouterContext,Context } from "https://deno.land/x/oak/mod.ts";
-import { composeMiddleware as Middleware } from "https://deno.land/x/oak/mod.ts";
+import { Router, RouterContext ,composeMiddleware as Middleware } from "https://deno.land/x/oak/mod.ts";
 import CONF from '../config.ts'
-import View from './view___.ts'
-
 
 const router = new Router();
-
 class Routers {
-    
+
+
     ar:Array<any> = []
     cekpath:Array<any> = []
     NprefixList: Array<any> = []
@@ -134,6 +131,13 @@ class Routers {
         for (const key in match) {
             this.Lmatch(match[key],uri,callback,ParaMidlew)
         }
+    }
+    public any(uri:any,callback:((context :RouterContext)=>void),ParaMidlew: Array<any> = []){
+        this.get(uri,callback,ParaMidlew)
+        this.post(uri,callback,ParaMidlew)
+        this.put(uri,callback,ParaMidlew)
+        this.delete(uri,callback,ParaMidlew)
+        
     }
 
     public Check(url:any,Method:any){
