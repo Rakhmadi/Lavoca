@@ -1,4 +1,12 @@
-## How to run 
+<h2> MVC Deno Web framework like Laravel using oak and denodb</h2>
+
+## How to Install 
+
+> https://github.com/Rakhmadi/Lavoca.git
+> cd Lavoca
+>
+
+## How to Run 
 
 > deno run -A --unstable app.ts
 >
@@ -6,11 +14,11 @@
 ## **Using Denon**
 
 >
->***-----install denon---------*** 
+>**install denon** 
 >
 >deno install -A -f -q --unstable https://deno.land/x/denon@2.3.2/denon.ts
 
->***------run app using denon----------*** 
+>**Run App Using Denon** 
 >
 >denon run -A --unstable app.ts
 
