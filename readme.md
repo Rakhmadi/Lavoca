@@ -17,19 +17,19 @@
 ## **Lavoca Command**
 >
 >
->** Create Controller **
+>**Create Controller**
 >
 >deno run -A --unstable lavoca.ts --controller < name_controller >
 
->** Create Model **
+>**Create Model**
 >
 >deno run -A --unstable lavoca.ts --model < name_model >
 
->** Create Middleware **
+>**Create Middleware**
 >
->deno run -A --unstable lavoca.ts --model < name_middleware >
+>deno run -A --unstable lavoca.ts --middleware < name_middleware >
 
 
->** Show Router list **
+>**Show Router list**
 >
 >deno run -A --unstable lavoca.ts --router show
