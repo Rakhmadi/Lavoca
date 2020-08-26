@@ -14,6 +14,7 @@ program
   .option('-m, --controller <type>')
   .option('-r, --router <type> ')
   .option('-m, --model <type>')
+  .option('-m, --middleware <type>')
 
 program.parse(Deno.args)
 
@@ -30,7 +31,9 @@ import View from '../core/view___.ts'
 import {Controller} from '../core/controller___.ts'
 
 export class ${program.controller} extends Controller{
-    
+    public fucntion get(ctx:any){
+      ctx.response.body = 'Hello'
+    }
 }
 ` 
   const FileName =`./controller/${program.controller}.ts`
@@ -41,11 +44,7 @@ export class ${program.controller} extends Controller{
     console.log(ink.colorize(`<green>Controller ${program.controller} Created</green>`));
   }
   
-  
-} else {
-    
 }
-
 
 if (program.model != null && program.model != '') {
   const Isi = `
@@ -73,8 +72,28 @@ if (program.model != null && program.model != '') {
     await Deno.writeTextFile(FileName, Isi);
     console.log(ink.colorize(`<green>Controller ${program.model} Created</green>`));
   }
+}
+
+if (program.model != null && program.model != '') {
+  const Isi = `
+  import { Context,Middleware  } from "https://deno.land/x/oak/mod.ts";
+
+  let ${program.middleware}:Middleware = async (ctx: Context, next: any) => {
+    console.log('hi im message from middleware');
+    //your code here
+    await next();
+  }
+  export {
+    ${program.middleware} 
+  }
   
-  
-} else {
     
+` 
+  const FileName =`./model/${program.middleware}.ts`
+  if (await Filesexist(`${Deno.cwd()}${FileName}`)) {   
+     console.log('the controller already exists');
+  } else {
+    await Deno.writeTextFile(FileName, Isi);
+    console.log(ink.colorize(`<green>Controller ${program.middleware} Created</green>`));
+  }
 }
