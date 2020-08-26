@@ -14,7 +14,7 @@
 ## **Using Denon**
 
 >
->**install denon** 
+>**Install denon** 
 >
 >deno install -A -f -q --unstable https://deno.land/x/denon@2.3.2/denon.ts
 

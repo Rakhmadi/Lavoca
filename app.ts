@@ -9,18 +9,15 @@ import { log } from './.core/handel.ts'
 
 const port:number = Conf.PORT
 const app = new Application()
+
+
 app.use(log);
 app.use(oakCors()); // Enable CORS for All Routes
 app.use(router.routes())
 app.use(router.allowedMethods())
 app.use(Asset)
 
-app.use(async (ctx, next) => {
-  const start = Date.now();
-  await next();
-  const ms = Date.now() - start;
-  ctx.response.headers.set("X-Response-Time", `${ms}ms`);
-});
+
 
 console.log(ink.colorize('<blue>༼ つ ◕_◕ ༽つ</blue>'));
 console.log(ink.colorize('<blue>╔═══════════════════════╗</blue>'));

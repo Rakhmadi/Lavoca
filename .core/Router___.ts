@@ -120,11 +120,83 @@ class Routers {
             Path:uris
         })
     }
+
+    public async options(url: string, callback: ((context: RouterContext) => void), ParaMidlew: Array<any> = []) {
+        let uris = this.getUri(url)
+        if (this.NMidllewareList == [] ) {
+            if (ParaMidlew == []) {
+                router.options(uris,await Middleware(ParaMidlew), callback)
+            } else {
+                router.options(uris, callback)
+            }
+        } else {
+            const Midlev:Array<any> = this.NMidllewareList.concat(ParaMidlew)
+            router.options(uris,await Middleware(Midlev), callback)
+        }
+        router.options(url,callback)
+        this.ar.push({
+            Method:"OPTIONS",
+            Path:uris
+        })
+    }
+
+
+    public async patch(url: string, callback: ((context: RouterContext) => void), ParaMidlew: Array<any> = []) {
+        let uris = this.getUri(url)
+        if (this.NMidllewareList == [] ) {
+            if (ParaMidlew == []) {
+                router.patch(uris,await Middleware(ParaMidlew), callback)
+            } else {
+                router.patch(uris, callback)
+            }
+        } else {
+            const Midlev:Array<any> = this.NMidllewareList.concat(ParaMidlew)
+            router.patch(uris,await Middleware(Midlev), callback)
+        }
+        router.patch(url,callback)
+        this.ar.push({
+            Method:"PATCH",
+            Path:uris
+        })
+    }
+
+    public async head(url: string, callback: ((context: RouterContext) => void), ParaMidlew: Array<any> = []) {
+        let uris = this.getUri(url)
+        if (this.NMidllewareList == [] ) {
+            if (ParaMidlew == []) {
+                router.head(uris,await Middleware(ParaMidlew), callback)
+            } else {
+                router.head(uris, callback)
+            }
+        } else {
+            const Midlev:Array<any> = this.NMidllewareList.concat(ParaMidlew)
+            router.head(uris,await Middleware(Midlev), callback)
+        }
+        router.head(url,callback)
+        this.ar.push({
+            Method:"HEAD",
+            Path:uris
+        })
+    }
+
+
     public Lmatch(g:any,uri:any,callback:((context :RouterContext)=>void),ParaMidlew: Array<any> = []) {
         if (g == 'get') {
             this.get(uri,callback,ParaMidlew)
         } else if (g == 'post') {
             this.post(uri,callback,ParaMidlew)
+        }else if (g == 'put') {
+            this.put(uri,callback,ParaMidlew)
+        }else if (g == 'delete') {
+            this.delete(uri,callback,ParaMidlew)
+        }else if (g == 'options') {
+            this.options(uri,callback,ParaMidlew)
+        }else if (g == 'patch') {
+            this.patch(uri,callback,ParaMidlew)
+        }else if (g == 'head') {
+            this.head(uri,callback,ParaMidlew)
+        }else{
+            this.get(uri,callback,ParaMidlew)
         }
     }
     public match(match:Array<string> ,uri:string ,callback:((context :RouterContext)=>void), ParaMidlew: Array<any> = []) {
@@ -137,7 +209,9 @@ class Routers {
         this.post(uri,callback,ParaMidlew)
         this.put(uri,callback,ParaMidlew)
         this.delete(uri,callback,ParaMidlew)
-        
+        this.options(uri,callback,ParaMidlew)
+        this.patch(uri,callback,ParaMidlew)
+        this.head(uri,callback,ParaMidlew)
     }
 
     public Check(url:any,Method:any){
@@ -149,17 +223,14 @@ class Routers {
             }
         }
         return f            
-    }        
+    }
     
     public ShowRoute(){
         return this.ar
     }
    
 }
-
-
 const Route = new Routers();
-
 export {
 	router,
     Route,

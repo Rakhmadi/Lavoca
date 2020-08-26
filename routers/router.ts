@@ -35,6 +35,9 @@ Route.get("/b/:id",()=>{
 Route.any('/any',(ctx)=>{
     ctx.response.body= 'helo'
 })
+router.all('/dd',(ctx)=>{
+        ctx.response.body = 'sdf'
+})
 
 
 let listrouter = Route.ShowRoute() // get router list for command
