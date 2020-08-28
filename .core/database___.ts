@@ -21,6 +21,9 @@ if (Conf.DB.CONF.TYPE == 'mysql' || 'postgres') {
            db = new Database(type, {
            filepath:fPath,
            });
+}else{
+     console.log('err');
+     
 }
 
 export {

@@ -1,7 +1,7 @@
 import {router,Route,} from '../.core/Router___.ts'
 import View from '../.core/view___.ts'
 import { ControllerRoute } from '../.core/controller___.ts'
-import { example,x} from '../middleware/_Kernel.ts'
+import { example,x,a,b} from '../middleware/_ListMiddleware.ts'
 
 /**
  * 
@@ -13,7 +13,7 @@ Route.get("/",(ctx)=>{
     return View.make(ctx,"index")
 })  
 
-Route.get("/hello/hell",await ControllerRoute.add("DefaultController", "hello")) 
+Route.get("/hello",await ControllerRoute.add("DefaultController", "hello")) 
 
 Route.middleware([example],()=> {
     Route.get('/ns', (ctx) => {
@@ -29,9 +29,7 @@ Route.prefix('/v1',()=>{
     })
 })
 
-Route.get("/b/:id",()=>{
-
-})
+Route.get("/b",()=>{},[a,b])
 Route.any('/any',(ctx)=>{
     ctx.response.body= 'helo'
 })

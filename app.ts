@@ -4,13 +4,13 @@ import {Asset} from './.core/app___.ts'
 import {router} from './routers/router.ts'
 import Conf from './config.ts'
 import * as ink from 'https://deno.land/x/ink/mod.ts'
-import { log } from './.core/handel.ts'
+import { log,status } from './.core/handel.ts'
 
 
 const port:number = Conf.PORT
 const app = new Application()
 
-
+app.use(status);
 app.use(log);
 app.use(oakCors()); // Enable CORS for All Routes
 app.use(router.routes())

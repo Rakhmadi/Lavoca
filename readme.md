@@ -27,15 +27,15 @@
 >
 >**Create Controller**
 >
->deno run -A --unstable lavoca.ts --controller < name_controller >
+>deno run -A --unstable lavoca.ts --make:controller < name_controller >
 
 >**Create Model**
 >
->deno run -A --unstable lavoca.ts --model < name_model >
+>deno run -A --unstable lavoca.ts --make:model < name_model >
 
 >**Create Middleware**
 >
->deno run -A --unstable lavoca.ts --middleware < name_middleware >
+>deno run -A --unstable lavoca.ts --make:middleware < name_middleware >
 
 
 >**Show Router list**

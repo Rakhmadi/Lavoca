@@ -11,45 +11,49 @@ program.version('0.0.1')
 program
   .option('-c, --config <FILE>', 'load configuration file')
   .option('-v, --verbose', 'enable verbose mode')
-  .option('-m, --controller <type>')
+  .option('-m, --make:controller <type>')
   .option('-r, --router <type> ')
-  .option('-m, --model <type>')
-  .option('-m, --middleware <type>')
+  .option('-m, --make:model <type>')
+  .option('-m, --make:middleware <type>')
+  .option('-m, --db:drop <type>')
 
 program.parse(Deno.args)
-
+  if (program['db:drop'] != null) {
+    console.log('db');
+    
+  }
   if (program.router != null) {
     console.log(showRoute);            
   }
 
-if (program.controller != null && program.controller != '') {
+if (program["make:controller"] != null && program["make:controller"] != '') {
   const Isi = `
 
-//controller ${program.controller} created
+//controller ${program["make:controller"]} created
 
 import View from '../core/view___.ts'
 import {Controller} from '../core/controller___.ts'
 
-export class ${program.controller} extends Controller{
+export class ${program["make:controller"]} extends Controller{
     public fucntion get(ctx:any){
       ctx.response.body = 'Hello'
     }
 }
 ` 
-  const FileName =`./controller/${program.controller}.ts`
+  const FileName =`./controller/${program["make:controller"]}.ts`
   if (await Filesexist(`${Deno.cwd()}${FileName}`)) {   
      console.log('the controller already exists');
   } else {
     await Deno.writeTextFile(FileName, Isi);
-    console.log(ink.colorize(`<green>Controller ${program.controller} Created</green>`));
+    console.log(ink.colorize(`<green>Controller ${program["make:controller"]} Created</green>`));
   }
   
 }
 
-if (program.model != null && program.model != '') {
+if (program["make:model"] != null && program["make:model"] != '') {
   const Isi = `
   import {Model,DataTypes,db} from '../.core/database___.ts'
-  export class ${program.model} extends Model {
+  export class ${program["make:model"]} extends Model {
   
       static table = 'nametable'; //name table
       static timestamps = true;   //create_at & update_at
@@ -62,38 +66,38 @@ if (program.model != null && program.model != '') {
     
     }
 
-    db.link([${program.model}]);
+    db.link([${program["make:model"]}]);
     
 ` 
-  const FileName =`./model/${program.model}.ts`
+  const FileName =`./model/${program["make:model"]}.ts`
   if (await Filesexist(`${Deno.cwd()}${FileName}`)) {   
      console.log('the controller already exists');
   } else {
     await Deno.writeTextFile(FileName, Isi);
-    console.log(ink.colorize(`<green>Controller ${program.model} Created</green>`));
+    console.log(ink.colorize(`<green>Controller ${program["make:model"]} Created</green>`));
   }
 }
 
-if (program.model != null && program.model != '') {
+if (program["make:middleware"] != null && program["make:middleware"] != '') {
   const Isi = `
   import { Context,Middleware  } from "https://deno.land/x/oak/mod.ts";
 
-  let ${program.middleware}:Middleware = async (ctx: Context, next: any) => {
+  let ${program["make:middleware"]}:Middleware = async (ctx: Context, next: any) => {
     console.log('hi im message from middleware');
     //your code here
     await next();
   }
   export {
-    ${program.middleware} 
+    ${program["make:middleware"]} 
   }
   
     
 ` 
-  const FileName =`./model/${program.middleware}.ts`
+  const FileName =`./model/${program["make:middleware"]}.ts`
   if (await Filesexist(`${Deno.cwd()}${FileName}`)) {   
      console.log('the controller already exists');
   } else {
     await Deno.writeTextFile(FileName, Isi);
-    console.log(ink.colorize(`<green>Controller ${program.middleware} Created</green>`));
+    console.log(ink.colorize(`<green>Controller ${program["make:middleware"]} Created</green>`));
   }
 }

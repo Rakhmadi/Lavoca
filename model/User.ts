@@ -1,5 +1,5 @@
 import {Model,DataTypes,db} from '../.core/database___.ts'
-export class User extends Model {
+export default class User extends Model {
 
     static table = 'flights';
     static timestamps = true;
@@ -15,4 +15,4 @@ export class User extends Model {
   
   }
   db.link([User]);
-  
+  db.sync();
