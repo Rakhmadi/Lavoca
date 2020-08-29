@@ -4,6 +4,9 @@ import { listrouter as showRoute } from './routers/router.ts'
 import Conf from './config.ts'
 import { Filesexist } from './.core/app___.ts'
 import * as ink from 'https://deno.land/x/ink/mod.ts'
+import {Model,DataTypes,db} from './.core/database___.ts'
+import User from './model/User.ts'
+
 const program = new Command()
 
 program.version('0.0.1')
@@ -15,13 +18,9 @@ program
   .option('-r, --router <type> ')
   .option('-m, --make:model <type>')
   .option('-m, --make:middleware <type>')
-  .option('-m, --db:drop <type>')
+
 
 program.parse(Deno.args)
-  if (program['db:drop'] != null) {
-    console.log('db');
-    
-  }
   if (program.router != null) {
     console.log(showRoute);            
   }
@@ -71,10 +70,10 @@ if (program["make:model"] != null && program["make:model"] != '') {
 ` 
   const FileName =`./model/${program["make:model"]}.ts`
   if (await Filesexist(`${Deno.cwd()}${FileName}`)) {   
-     console.log('the controller already exists');
+     console.log('the Model already exists');
   } else {
     await Deno.writeTextFile(FileName, Isi);
-    console.log(ink.colorize(`<green>Controller ${program["make:model"]} Created</green>`));
+    console.log(ink.colorize(`<green>Model ${program["make:model"]} Created</green>`));
   }
 }
 
@@ -95,9 +94,9 @@ if (program["make:middleware"] != null && program["make:middleware"] != '') {
 ` 
   const FileName =`./model/${program["make:middleware"]}.ts`
   if (await Filesexist(`${Deno.cwd()}${FileName}`)) {   
-     console.log('the controller already exists');
+     console.log('the Middleware already exists');
   } else {
     await Deno.writeTextFile(FileName, Isi);
-    console.log(ink.colorize(`<green>Controller ${program["make:middleware"]} Created</green>`));
+    console.log(ink.colorize(`<green>Middleware ${program["make:middleware"]} Created</green>`));
   }
 }

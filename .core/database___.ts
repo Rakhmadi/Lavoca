@@ -11,6 +11,7 @@ if (Conf.DB.CONF.TYPE == 'mysql' || 'postgres') {
            password: Conf.DB.CONF.PASSWORD,
            port: Conf.DB.CONF.PORT,
          });
+        
 } else if(Conf.DB.CONF.TYPE == "mongodb") {
            db = new Database(type, {
            uri:Conf.DB.CONF.MONGO._URI,
@@ -25,6 +26,7 @@ if (Conf.DB.CONF.TYPE == 'mysql' || 'postgres') {
      console.log('err');
      
 }
+
 
 export {
      DataTypes,Database,Model,db

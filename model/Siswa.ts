@@ -1,7 +1,7 @@
 import {Model,DataTypes,db} from '../.core/database___.ts'
-export default class User extends Model {
+export default class Siswa extends Model {
 
-    static table = 'User';
+    static table = 'Siswa';
     static timestamps = true;
   
     static fields = {
@@ -15,7 +15,6 @@ export default class User extends Model {
   
   }
   
-  db.link([User]);
-  db.sync();
-
- 
+  db.link([Siswa]); 
+  db.sync()
+  

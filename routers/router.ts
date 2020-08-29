@@ -3,6 +3,9 @@ import View from '../.core/view___.ts'
 import { ControllerRoute } from '../.core/controller___.ts'
 import { example,x,a,b} from '../middleware/_ListMiddleware.ts'
 
+
+
+
 /**
  * 
  * 
@@ -14,7 +17,7 @@ Route.get("/",(ctx)=>{
 })  
 
 Route.get("/hello",await ControllerRoute.add("DefaultController", "hello")) 
-
+Route.post("/gf",await ControllerRoute.add("DefaultController", "show")) 
 Route.middleware([example],()=> {
     Route.get('/ns', (ctx) => {
         ctx.response.body= 'dsf'
@@ -29,7 +32,9 @@ Route.prefix('/v1',()=>{
     })
 })
 
-Route.get("/b",()=>{},[a,b])
+Route.post("/b",async({request,response}: any)=>{
+ 
+},[x])
 Route.any('/any',(ctx)=>{
     ctx.response.body= 'helo'
 })
