@@ -1,4 +1,4 @@
-import { example, x } from '../middleware/examplemiddleware.ts'
+import { example, x ,n} from '../middleware/examplemiddleware.ts'
 import { a,b } from '../middleware/example2.ts'
 
 
@@ -14,4 +14,5 @@ export {
   x,
   a,
   b,
+  n
 }

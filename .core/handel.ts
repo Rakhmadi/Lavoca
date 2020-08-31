@@ -17,6 +17,7 @@ let log = async (ctx: Context, next: any): Promise<void> => {
 //status error handle 
 let status = async(ctx:Context , next:any):Promise<void>=>{
   if (ctx.response.status == 404) {
+    ctx.response.status = 404
      ctx.response.body = await view(ctx,"404")
   }
 

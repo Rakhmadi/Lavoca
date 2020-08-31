@@ -1,7 +1,7 @@
 import {router,Route,} from '../.core/Router___.ts'
 import View from '../.core/view___.ts'
 import { ControllerRoute } from '../.core/controller___.ts'
-import { example,x,a,b} from '../middleware/_ListMiddleware.ts'
+import { example,x,a,b,n} from '../middleware/_ListMiddleware.ts'
 
 
 
@@ -32,9 +32,9 @@ Route.prefix('/v1',()=>{
     })
 })
 
-Route.post("/b",async({request,response}: any)=>{
- 
-},[x])
+Route.post("/b",async(ctx)=>{
+   ctx.response.body = 'dsf'
+},[n])
 Route.any('/any',(ctx)=>{
     ctx.response.body= 'helo'
 })
