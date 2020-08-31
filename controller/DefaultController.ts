@@ -13,7 +13,7 @@ export class DefaultController extends Controller{
          console.log(await Siswa);
          console.log( );
          
-         return View.make(ctx,'hello')
+         ctx.response.body =await View.render('hello')
      }
 
      public async show(ctx:any){

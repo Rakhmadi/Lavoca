@@ -12,8 +12,8 @@ import { example,x,a,b,n} from '../middleware/_ListMiddleware.ts'
  * 
  */
 
-Route.get("/",(ctx)=>{
-    return View.make(ctx,"index")
+Route.get("/",async(ctx)=>{
+    return await View.make(ctx,"index")
 })  
 
 Route.get("/hello",await ControllerRoute.add("DefaultController", "hello")) 
