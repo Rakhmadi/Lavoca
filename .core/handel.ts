@@ -1,11 +1,8 @@
 import { Context } from "https://deno.land/x/oak/mod.ts";
-import * as dejs from 'https://deno.land/x/dejs/mod.ts';
+
 import { isHttpError,Status } from "https://deno.land/x/oak/mod.ts";
 
-let view = async(ctx:Context,file:string,params:any = []):Promise<string>=>{
-  const Rdn = await dejs.renderFileToString(`${Deno.cwd()}/res/view/${file}.ejs`,{BaseURL:ctx.request.url.origin,data:params})
-  return  Rdn
-}
+
 
 let log = async (ctx: Context, next: any): Promise<void> => {
   await next();
@@ -17,9 +14,13 @@ let log = async (ctx: Context, next: any): Promise<void> => {
 //status error handle 
 let status = async(ctx:Context , next:any):Promise<void>=>{
   if (ctx.response.status == 404) {
-     ctx.response.body = await view(ctx,"404")
-  }
-
+        
+    ctx.response.body = await view(ctx,"404")
+ }else if(ctx.response.status == 200){
+     ctx.response.status = 200
+ }else{
+     
+ }
  try {
    await next();
  } catch (err) {

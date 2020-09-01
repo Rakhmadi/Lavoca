@@ -40,4 +40,4 @@
 
 >**Show Router list**
 >
->deno run -A --unstable lavoca.ts --router show
+>deno run -A --unstable lavoca.ts --show:router

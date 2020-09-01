@@ -1,11 +1,7 @@
 import { Command } from 'https://cdn.depjs.com/cmd/mod.ts'
-import {Route} from './.core/Router___.ts'
 import { listrouter as showRoute } from './routers/router.ts'
-import Conf from './config.ts'
 import { Filesexist } from './.core/app___.ts'
 import * as ink from 'https://deno.land/x/ink/mod.ts'
-import {Model,DataTypes,db} from './.core/database___.ts'
-import User from './model/User.ts'
 
 const program = new Command()
 
@@ -15,13 +11,13 @@ program
   .option('-c, --config <FILE>', 'load configuration file')
   .option('-v, --verbose', 'enable verbose mode')
   .option('-m, --make:controller <type>')
-  .option('-r, --router <type> ')
+  .option('-r, --show:router ')
   .option('-m, --make:model <type>')
   .option('-m, --make:middleware <type>')
 
 
 program.parse(Deno.args)
-  if (program.router != null) {
+  if (program["show:router"]) {
     console.log(showRoute);            
   }
 
@@ -52,7 +48,7 @@ export class ${program["make:controller"]} extends Controller{
 if (program["make:model"] != null && program["make:model"] != '') {
   const Isi = `
   import {Model,DataTypes,db} from '../.core/database___.ts'
-  export class ${program["make:model"]} extends Model {
+  export default class ${program["make:model"]} extends Model {
   
       static table = 'nametable'; //name table
       static timestamps = true;   //create_at & update_at
@@ -66,6 +62,7 @@ if (program["make:model"] != null && program["make:model"] != '') {
     }
 
     db.link([${program["make:model"]}]);
+    db.sync()
     
 ` 
   const FileName =`./model/${program["make:model"]}.ts`

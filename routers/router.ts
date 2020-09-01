@@ -44,4 +44,5 @@ router.all('/dd',(ctx)=>{
 
 
 let listrouter = Route.ShowRoute() // get router list for command
+
 export  {router,listrouter}
