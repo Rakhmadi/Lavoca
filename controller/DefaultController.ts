@@ -11,7 +11,7 @@ export class DefaultController extends Controller{
      public async hello(ctx:any){
          console.log(await User);
          console.log(await Siswa);
-         console.log( );
+         
          
          ctx.response.body =await View.render('hello')
      }
