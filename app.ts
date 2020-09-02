@@ -62,4 +62,5 @@ console.log(ink.colorize('<blue>║  Enjoy it             ║</blue>'));
 console.log(ink.colorize('<blue>╚═══════════════════════╝</blue>'));
 console.log(ink.colorize(`<blue>http://localhost:${port}/</blue>`));
 export { OriginUrl }
+
 await app.listen({ port });

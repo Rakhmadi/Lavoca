@@ -2,11 +2,9 @@ import { Command } from 'https://cdn.depjs.com/cmd/mod.ts'
 import { listrouter as showRoute } from './routers/router.ts'
 import { Filesexist } from './.core/app___.ts'
 import * as ink from 'https://deno.land/x/ink/mod.ts'
-
+////////////////////////////////////////////////////////////////
 const program = new Command()
-
 program.version('0.0.1')
-
 program
   .option('-c, --config <FILE>', 'load configuration file')
   .option('-v, --verbose', 'enable verbose mode')
@@ -14,11 +12,30 @@ program
   .option('-r, --show:router ')
   .option('-m, --make:model <type>')
   .option('-m, --make:middleware <type>')
-
-
+  .option('-r, --show:model ')
+  .option('-r, --show:controller ')
+  .option('-r, --show:middleware ')
 program.parse(Deno.args)
+////////////////////////////////////////////////////////////////
+  if (program["show:model"]) {
+    for await (const dirEntry of Deno.readDir("./model")) {
+      console.log(dirEntry.name);
+    }          
+  }
+  
+  if (program["show:controller"]) {
+    for await (const dirEntry of Deno.readDir("./controller")) {
+      console.log(dirEntry.name);
+    }          
+  }
+  if (program["show:middleware"]) {
+    for await (const dirEntry of Deno.readDir("./middleware")) {
+      console.log(dirEntry.name);
+    }          
+  }
+
   if (program["show:router"]) {
-    console.log(showRoute);            
+    console.log(await showRoute());            
   }
 
 if (program["make:controller"] != null && program["make:controller"] != '') {

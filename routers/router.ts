@@ -3,9 +3,6 @@ import View from '../.core/view___.ts'
 import { ControllerRoute } from '../.core/controller___.ts'
 import { example,x} from '../middleware/_ListMiddleware.ts'
 
-
-
-
 /**
  * 
  * 
@@ -43,6 +40,14 @@ router.all('/dd',(ctx)=>{
 })
 
 
-let listrouter = Route.ShowRoute() // get router list for command
+/**
+ * 
+ * 
+ * 
+ */
 
+//
+let listrouter = async()=>{
+    return Route.ShowRoute()
+} // get router list for command
 export  {router,listrouter}
