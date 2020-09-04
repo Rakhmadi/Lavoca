@@ -159,7 +159,7 @@
 >
 >```ts
 >// default get method
->Route.view('/prefix','file_ejs')
+>Route.view('/path','file_ejs')
 >
 >```
 
