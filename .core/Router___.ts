@@ -1,6 +1,6 @@
 import { Router, RouterContext ,composeMiddleware as Middleware } from "https://deno.land/x/oak/mod.ts";
 import CONF from '../config.ts'
-
+import * as dejs from 'https://deno.land/x/dejs/mod.ts';
 const router = new Router();
 class Routers {
 
@@ -10,8 +10,9 @@ class Routers {
     NprefixList: Array<any> = []
     NMidllewareList:Array<any> =[]
     NSingleMiddlewareList: Array<any> = []
+    child:any = ''
     
-    public prefix(n: string,f:()=>void, ): this{
+    public prefix(n: string,f:()=>void,d:any ): this{
         this.NprefixList.push(n)
         f.call(this)
         this.NprefixList=[] //clear
@@ -20,7 +21,12 @@ class Routers {
     public getUri(n:string) {
         return this.NprefixList.join('') + n
     }
-
+    public prefixChild(childprefix:string,f:Function){
+        this.child.push(childprefix)
+        this.NprefixList.join('') + childprefix
+        f.call(this)
+        this.child = []
+    }
     public async middleware(n:any, f: Function | null){
          this.NMidllewareList = n
          if (typeof f == 'function') {
@@ -205,6 +211,7 @@ class Routers {
         }
     }
     public any(uri:any,callback:((context :RouterContext)=>void),ParaMidlew: Array<any> = []){
+        
         this.get(uri,callback,ParaMidlew)
         this.post(uri,callback,ParaMidlew)
         this.put(uri,callback,ParaMidlew)
@@ -228,7 +235,13 @@ class Routers {
     public ShowRoute(){
         return this.ar
     }
-   
+    public view(url:string,file:string,params:any = []){
+        this.get(url,async(ctx)=>{
+            const Rdn = await dejs.renderFileToString(`${Deno.cwd()}/res/view/${file}.ejs`,{BaseURL:ctx.request.url.origin,data:params})
+            ctx.response.body=Rdn
+        })
+    }
+
 }
 const Route = new Routers();
 export {

@@ -1,6 +1,6 @@
 import {router,Route,} from '../.core/Router___.ts'
 import View from '../.core/view___.ts'
-import { ControllerRoute } from '../.core/controller___.ts'
+import { ControllerRoute as Controller } from '../.core/controller___.ts'
 import { example,x} from '../middleware/_ListMiddleware.ts'
 
 /**
@@ -9,12 +9,15 @@ import { example,x} from '../middleware/_ListMiddleware.ts'
  * 
  */
 
+Route.get("/v/:id",async(ctx)=>{
+    return ctx.response.body = ctx.params.id
+})  
 Route.get("/",async(ctx)=>{
     return await View.make(ctx,"index")
 })  
-
-Route.get("/hello",await ControllerRoute.add("DefaultController", "hello")) 
-Route.post("/gf",await ControllerRoute.add("DefaultController", "show")) 
+Route.view('/view','index')
+Route.get("/hello",await Controller.set("DefaultController", "hello"))
+Route.post("/gf",await Controller.set("DefaultController", "show")) 
 Route.middleware([example],()=> {
     Route.get('/ns', (ctx) => {
         ctx.response.body= 'dsf'

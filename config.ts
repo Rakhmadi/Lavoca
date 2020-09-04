@@ -1,6 +1,7 @@
 var Conf = {
     DB: {
         CONF: {
+            ENABLE: true, //enable Database // true or false
             TYPE: "mysql", //   mysql || postgres || sqlite3 || mongodb
             HOST: "127.0.0.1",
             PORT: 3306,

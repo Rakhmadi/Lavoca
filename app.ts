@@ -13,6 +13,12 @@ let view = async(ctx:Context,file:string,params:any = []):Promise<string>=>{
 
 const port:number = Conf.PORT
 const app = new Application()
+// Logger
+app.use(async (ctx, next) => {
+  await next();
+  const rt = ctx.response.headers.get("X-Response-Time");
+  console.log(`${ctx.request.method} ${ctx.request.url} - ${rt}`);
+});
 
 app.use(async (ctx, next) => {
     if (ctx.response.status == 404) {
@@ -25,7 +31,7 @@ app.use(async (ctx, next) => {
      }
     try {
       await next();
-    } catch (err) {
+    } catch (err) { 
       if (isHttpError(err)) {
         switch (err.status) {
           case Status.NotFound:
@@ -45,22 +51,11 @@ app.use(router.routes())
 app.use(router.allowedMethods())
 app.use( Asset)
 
-// Logger
-app.use(async (ctx, next) => {
-    await next();
-    const rt = ctx.response.headers.get("X-Response-Time");
-    console.log(`${ctx.request.method} ${ctx.request.url} - ${rt}`);
-  });
-let OriginUrl:any
-app.use((ctx)=>{
-    OriginUrl  = ctx.request.url.origin
-})
+
 
 console.log(ink.colorize('<blue>༼ つ ◕_◕ ༽つ</blue>'));
 console.log(ink.colorize('<blue>╔═══════════════════════╗</blue>'));
 console.log(ink.colorize('<blue>║  Enjoy it             ║</blue>'));
 console.log(ink.colorize('<blue>╚═══════════════════════╝</blue>'));
 console.log(ink.colorize(`<blue>http://localhost:${port}/</blue>`));
-export { OriginUrl }
-
 await app.listen({ port });

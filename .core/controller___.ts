@@ -1,6 +1,6 @@
 
 class Controller{
-     add(controller:string,method:string) { //get controller file
+     set(controller:string,method:string) { //get controller file
      const SrcFileController = `../controller/${controller}.ts`
       async function Inty(){
        const n =await import(SrcFileController)

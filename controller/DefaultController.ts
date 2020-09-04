@@ -6,7 +6,6 @@ import {Controller} from '../.core/controller___.ts'
 import User from '../model/User.ts'
 import Siswa from '../model/Siswa.ts'
 import example from '../model/example.ts'
-import {Model,DataTypes,db} from '../.core/database___.ts'
 export class DefaultController extends Controller{
 
      public async hello(ctx:any){
