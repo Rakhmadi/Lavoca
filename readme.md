@@ -153,5 +153,15 @@
 >
 >```
 
+>
+>
+>**View Routes**
+>
+>```ts
+>// default get method
+>Route.view('/prefix','file_ejs')
+>
+>```
+
 
 
