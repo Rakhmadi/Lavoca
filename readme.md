@@ -23,6 +23,24 @@
 >
 >denon run -A --unstable app.ts
 
+## **Structure Folder**
+>```.
+>└── your_project/
+>    ├── .core
+>    ├── controller
+>    ├── middleware
+>    ├── model
+>    ├── res/
+>    │   ├── assets
+>    │   └── view
+>    ├── routers/
+>    │   └── router.ts
+>    ├── app.ts
+>    ├── config.ts
+>    ├── config.Example.ts
+>    └── lavoca.ts
+>```
+
 ## **Lavoca Command**
 >
 >
