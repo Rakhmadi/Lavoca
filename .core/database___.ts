@@ -3,6 +3,8 @@ import { DataTypes, Database, Model } from 'https://deno.land/x/denodb/mod.ts';
 
 let db:any
 let type:any = Conf.DB.CONF.TYPE
+
+if (Conf.DB.CONF.ENABLE) {
 if (Conf.DB.CONF.TYPE == 'mysql' || 'postgres') {
         db = new Database(type, {
            database: Conf.DB.CONF.DATABASE,
@@ -23,8 +25,11 @@ if (Conf.DB.CONF.TYPE == 'mysql' || 'postgres') {
            filepath:fPath,
            });
 }else{
+
+     
      console.log('err');
      
+}
 }
 
 

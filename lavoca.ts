@@ -114,3 +114,4 @@ if (program["make:middleware"] != null && program["make:middleware"] != '') {
     console.log(ink.colorize(`<green>Middleware ${program["make:middleware"]} Created</green>`));
   }
 }
+

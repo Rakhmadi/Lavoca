@@ -22,13 +22,10 @@ export class DefaultController extends Controller{
      }
 
      public async show(ctx:any){
-     
         const body = await ctx.request.body();
         const formData = await body.value.read();
         console.log(formData.fields.name);
         console.log(formData.files);
-        
-        
      }
      
  }

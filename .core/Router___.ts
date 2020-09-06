@@ -12,7 +12,7 @@ class Routers {
     NSingleMiddlewareList: Array<any> = []
     child:any = ''
     
-    public prefix(n: string,f:()=>void,d:any ): this{
+    public prefix(n: string,f:()=>void,d:any=[] ): this{
         this.NprefixList.push(n)
         f.call(this)
         this.NprefixList=[] //clear
