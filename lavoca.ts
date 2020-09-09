@@ -47,7 +47,7 @@ import View from '../core/view___.ts'
 import {Controller} from '../core/controller___.ts'
 
 export class ${program["make:controller"]} extends Controller{
-    public fucntion get(ctx:any){
+    public async get(ctx:any){
       ctx.response.body = 'Hello'
     }
 }

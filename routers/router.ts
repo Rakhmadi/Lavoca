@@ -18,6 +18,7 @@ Route.get("/",async(ctx)=>{
 Route.view('/view','index')
 Route.get("/hello",await Controller.set("DefaultController", "hello"))
 Route.post("/gf",await Controller.set("DefaultController", "show")) 
+Route.get("/webconfig",await Controller.set("ConfigController", "get")) 
 Route.middleware([example],()=> {
     Route.get('/ns', (ctx) => {
         ctx.response.body= 'dsf'
