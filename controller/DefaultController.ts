@@ -9,12 +9,10 @@ import example from '../model/example.ts'
 export class DefaultController extends Controller{
 
      public async hello(ctx:any){
-         console.log(await User);
-         console.log(await Siswa);
          console.log(await example);
          // create data if call hello function
          await example.create({
-             name:"lorem ipsum"
+             name:"lorem ipsum "
          })
          
          const n:any = await example.all()

@@ -2,7 +2,7 @@
 
 ## How to Install 
 
-> https://github.com/Rakhmadi/Lavoca.git
+> git clone https://github.com/Rakhmadi/Lavoca.git
 >
 > cd Lavoca
 >
