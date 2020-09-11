@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Lavoca _Webconfig</title>
+    <link href="assets/css/config.style.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+   <div class="tabs"><input class="input" name="tabs" type="radio" id="tab-1" checked="checked" /><label class="label" for="tab-1">App Config</label>
+    <div class="panel">
+        <div class="ems">
+            <form class="hmm" id="savsc">
+                <h2>App Setting</h2>
+                <label class="lablefr" for="s">Port</label>
+                <input type="number" value="<%=data.PORT %>" id="s" name="Port">
+                <br>
+                <br>
+                <label class="lablefr" for="s">Host </label>
+                <input type="text" id="s" value="<%=data.HOST %>" name="host">
+                <br><br>
+                <label for="s">Show Route in browser </label>
+                <select name="browserRoute" value="<%=data.SHOW_ROUTE %>" id="">
+                    <option value="true">true</option>
+                    <option value="false">false</option>
+                </select>
+                
+                <label for="s">Web configuration </label>
+                <select name="webConf" value="<%=data.WebConfing %>" id="">
+                    <option value="true">true</option>
+                    <option value="false">false</option>
+                </select>
+                <br><br>
+                <hr>
+                <h2>Database Setting</h2>
+            <label for="s">Database Enable </label>
+            <select  name='databse_enable' value="<%=data.DB.CONF.ENABLE %>" id="">
+                <option value="true">true</option>
+                <option value="false">false</option>
+            </select>
+            <br>
+            <br>
+            <label for="cars">Type Database</label>
+            <select name="dbtype" onchange="showDiv(this)" class="selecting">
+              <option selected="selected"><%=data.DB.CONF.TYPE %></option>
+              <option value="mysql">mysql</option>
+              <option value="postgres">postgres</option>
+              <option value="sqlite3">sqlite3</option>
+              <option value="mongodb">mongodb</option>
+            </select>
+            
+            <div id="sql">
+               <br>
+                <label class="lablefr" for="s">Host</label>
+                <input type="text" id="s" value="<%=data.DB.CONF.HOST %>" name="hostdb">
+                <br><br>
+                 
+                <label class="lablefr"for="s">Port</label>
+                <input type="number" value="<%=data.DB.CONF.PORT %>" pattern="[0-9]+"  id="s" name="port" required>
+                <br><br>
+                 
+                <label class="lablefr" for="s">Database</label>
+                <input type="text" value="<%=data.DB.CONF.DATABASE %>" id="s" name="database">
+                 <br><br>
+                 
+                <label class="lablefr" for="s">Username</label>
+                <input type="text" id="s" value="<%=data.DB.CONF.USERNAME %>" name="username">
+                <br><br>
+                 
+                <label class="lablefr" for="s">Password</label>
+                <input type="text" id="s" value="<%=data.DB.CONF.PASSWORD %>" name="password">
+               
+            <br>
+            </div>
+            <div id="mongodb">
+              <br>
+              <label class="lablefr" for="s">Url mongoDB</label>
+              <input type="text" id="s" value="<%=data.DB.CONF.MONGO._URI %>" name="mongo_uri">
+              <br><br>
+              <label class="lablefr" for="s">Database Name</label>
+              <input type="text" id="s" value="<%=data.DB.CONF.MONGO._DB %>" name="db_name_mongo">
+              <br>
+            </div>
+            <div id="sqlite3">
+                <label class="lablefr" for="s">Sqlite3 Path</label>
+                <input type="text" id="s" value="<%=data.DB.CONF.Sqlite3.FilePath %>" name="path_sqlite">
+            <br>
+
+            
+            </div>
+            <br><br>
+            <i>Save & Reload app</i>
+            <br>
+            <br>
+            <input type="submit" value="Save Config">
+           </form>
+           
+        </div>
+    </div><input class="input" name="tabs" type="radio" id="tab-2" /><label class="label" for="tab-2">Route List</label>
+    <div class="panel">
+        <div class="ems">
+            <h2>Route List</h2>
+            
+            <table>
+                <tr>
+                  <th>Method</th>
+                  <th>Path</th>
+                </tr>
+               <tbody id="rout">
+
+               </tbody>
+              </table>
+        </div>
+        
+          
+    </div><input class="input" name="tabs" type="radio" id="tab-3" /><label class="label" for="tab-3">Clemantine</label>
+    <div class="panel">
+        <h1>Clemantine</h1>
+        <p>A clementine (Citrus ×clementina) is a hybrid between a mandarin orange and a sweet orange, so named in 1902. The exterior is a deep orange colour with a smooth, glossy appearance. Clementines can be separated into 7 to 14 segments. Similarly
+            to tangerines, they tend to be easy to peel.</p>
+    </div>
+
+    <input class="input" name="tabs" type="radio" id="tab-3" /><label class="label" for="tab-3">Clemantine</label>
+    <div class="panel">
+        <h1>Clemantine</h1>
+        <p>A clementine (Citrus ×clementina) is a hybrid between a mandarin orange and a sweet orange, so named in 1902. The exterior is a deep orange colour with a smooth, glossy appearance. Clementines can be separated into 7 to 14 segments. Similarly
+            to tangerines, they tend to be easy to peel.</p>
+    </div>
+    <input class="input" name="tabs" type="radio" id="tab-3" /><label class="label" for="tab-3">Clemantine</label>
+    <div class="panel">
+        <h1>Clemantine</h1>
+        <p>A clementine (Citrus ×clementina) is a hybrid between a mandarin orange and a sweet orange, so named in 1902. The exterior is a deep orange colour with a smooth, glossy appearance. Clementines can be separated into 7 to 14 segments. Similarly
+            to tangerines, they tend to be easy to peel.</p>
+    </div>
+    <input class="input" name="tabs" type="radio" id="tab-3" /><label class="label" for="tab-3">Clemantine</label>
+    <div class="panel">
+        <h1>Clemantine</h1>
+        <p>A clementine (Citrus ×clementina) is a hybrid between a mandarin orange and a sweet orange, so named in 1902. The exterior is a deep orange colour with a smooth, glossy appearance. Clementines can be separated into 7 to 14 segments. Similarly
+            to tangerines, they tend to be easy to peel.</p>
+    </div>
+</div>
+<script>
+function showDiv( element){
+    if (element.value == 'mysql' || element.value == 'postgres') {
+        document.getElementById('sql').style.display = 'block';
+        document.getElementById('mongodb').style.display = 'none';
+        document.getElementById('sqlite3').style.display = 'none';
+        console.log('asd');
+    } else if(element.value == 'mongodb') {
+        document.getElementById('mongodb').style.display = 'block';
+        document.getElementById('sql').style.display = 'none';
+        document.getElementById('sqlite3').style.display = 'none';
+         console.log('asd');
+    }
+    else if(element.value == 'sqlite3') {
+        document.getElementById('sqlite3').style.display = 'block';
+        document.getElementById('sql').style.display = 'none';
+        document.getElementById('mongodb').style.display = 'none';
+    }
+    
+}
+setInterval(function(){
+    fetch('/route')
+  .then(response => response.json())
+  .then(data =>{
+    const u =data;
+    let op = '';
+    u.forEach(els => {
+            op +=` 
+        <tr>
+        <td>${els.Method}</td>  
+        <td>${els.Path}</td>
+        </tr>
+         `        
+         document.getElementById("rout").innerHTML = op;    
+        });
+  });
+},2000)
+  savsc.onsubmit = async (e) => {
+    e.preventDefault();
+
+    let response = await fetch('/webconfig/create', {
+      method: 'POST',
+      body: new FormData(savsc)
+    });
+   
+    if (response.status == 200) {
+        alert('Saved')
+    }
+
+   
+ 
+  };
+</script>
+  </body>
+</html>
