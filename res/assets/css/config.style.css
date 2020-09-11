@@ -30,7 +30,7 @@
   .tabs {
     display: flex;
     flex-wrap: wrap;
-    max-width: 100%;
+    max-width: 90vw;
     background: #e5e5e5;
     
   }
@@ -72,12 +72,12 @@
     padding: 20px 30px 30px;
     background: #fff;
     height:auto ;
-    width: 100%;
+    width: 90vw;
   }
   @media (min-width: 600px) {
     .panel {
       order: 99;
-      width: 100%;
+    
     }
   }
   .input:checked + .label + .panel {
