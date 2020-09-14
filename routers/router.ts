@@ -34,4 +34,4 @@ Route.post("/webconfig/create",await Controller.set("ConfigController", "create"
 let listrouter = async()=>{
     return Route.ShowRoute()
 } // get router list for command
-export  {router,listrouter}
+export  {router,listrouter,Route}

@@ -3,9 +3,8 @@
 
 import View from '../.core/view___.ts'
 import {Controller} from '../.core/controller___.ts'
-import User from '../model/User.ts'
-import Siswa from '../model/Siswa.ts'
 import example from '../model/example.ts'
+
 export class DefaultController extends Controller{
 
      public async hello(ctx:any){
@@ -14,8 +13,12 @@ export class DefaultController extends Controller{
          await example.create({
              name:"lorem ipsum "
          })
-         
+
          const n:any = await example.all()
+         console.log(typeof ctx);
+         console.log(typeof ctx.response);
+         
+         
          ctx.response.body =await View.make(ctx,'hello',n)
      }
 
