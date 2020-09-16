@@ -1,5 +1,7 @@
 <h2> MVC Deno Web framework like Laravel using oak and denodb</h2>
 
+## Deno Version ( tested to deno 1.3.0 ) 
+
 ## How to Install 
 
 > git clone https://github.com/Rakhmadi/Lavoca.git
