@@ -14,6 +14,8 @@ if (Conf.DB.CONF.TYPE == 'mysql' || Conf.DB.CONF.TYPE == 'postgres') {
                password: Conf.DB.CONF.PASSWORD,
                port: Conf.DB.CONF.PORT,
              });
+            
+             
         } catch (error) {
              console.log(error);
              

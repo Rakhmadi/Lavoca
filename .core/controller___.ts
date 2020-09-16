@@ -1,7 +1,8 @@
 
 class Controller{
      set(controller:string,method:string) { //get controller file
-     try {
+      
+
       const SrcFileController = `../controller/${controller}.ts`
       async function Inty(){
        const n =await import(SrcFileController)
@@ -15,9 +16,7 @@ class Controller{
         return MethodOfController
        }
        return Inty()
-     } catch (error) {
-        return error
-     }
+     
   }
 }
 const ControllerRoute = new Controller

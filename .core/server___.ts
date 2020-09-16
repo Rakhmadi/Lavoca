@@ -27,7 +27,7 @@ let view = async(ctx:Context,file:string,params:any = []):Promise<string>=>{
    
   app.use(async (ctx, next) => {
       if (ctx.response.status == 404) {
-          ctx.response.body = await view(ctx,"404")
+          ctx.response.body = await view(ctx,"error_page/404")
        }else if(ctx.response.status == 200){
            ctx.response.status = 200
        }else{

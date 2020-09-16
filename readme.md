@@ -21,7 +21,7 @@
 
 >**Run App Using Denon** 
 >
->denon run -A --unstable app.ts
+>denon start
 
 ## **Structure Folder**
 >```.
@@ -38,6 +38,8 @@
 >    ├── app.ts
 >    ├── config.ts
 >    ├── config.Example.ts
+>    ├── database.sqlite
+>    ├── denon.json
 >    └── lavoca.ts
 >```
 

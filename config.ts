@@ -1,8 +1,11 @@
+// MySQL and MariaDB (5.5 and 10.2+)
+// MariaDB 10.0 and 10.1 are not supported at the moment
+// the default database is using sqlite3
       var Conf = {
         DB: {
             CONF: {
                 ENABLE: true, //enable Database // true or false
-                TYPE: "mysql", //   mysql || postgres || sqlite3 || mongodb
+                TYPE: "sqlite3", //   mysql || postgres || sqlite3 || mongodb 
                 HOST: "127.0.0.1",
                 PORT: 3306,
                 DATABASE: "lavoca",
