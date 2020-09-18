@@ -106,7 +106,7 @@ if (program["make:middleware"] != null && program["make:middleware"] != '') {
   
     
 ` 
-  const FileName =`./model/${program["make:middleware"]}.ts`
+  const FileName =`./middleware/${program["make:middleware"]}.ts`
   if (await Filesexist(`${Deno.cwd()}${FileName}`)) {   
      console.log('the Middleware already exists');
   } else {

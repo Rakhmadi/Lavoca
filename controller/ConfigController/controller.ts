@@ -1,7 +1,7 @@
-import View from '../.core/view___.ts'
-import {Controller} from '../.core/controller___.ts'
-import Conf from '../config.ts'
-export class ConfigController extends Controller{
+import View from '../../.core/view___.ts'
+import {Controller} from '../../.core/controller___.ts'
+import Conf from '../../config.ts'
+export class controller extends Controller{
     public async get(ctx:any){
     if (Conf.WebConfing) {
       const conf = Conf

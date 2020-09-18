@@ -13,20 +13,20 @@
             <form class="hmm" id="savsc">
                 <h2>App Setting</h2>
                 <label class="lablefr" for="s">Port</label>
-                <input type="number" value="<%=data.PORT %>" id="s" name="Port">
+                <input type="number" value="<%=data.PORT %>"  name="Port">
                 <br>
                 <br>
                 <label class="lablefr" for="s">Host </label>
-                <input type="text" id="s" value="<%=data.HOST %>" name="host">
+                <input type="text"  value="<%=data.HOST %>" name="host">
                 <br><br>
                 <label for="s">Show Route in browser </label>
-                <select name="browserRoute" value="<%=data.SHOW_ROUTE %>" id="">
+                <select name="browserRoute" value="<%=data.SHOW_ROUTE %>" >
                     <option value="true">true</option>
                     <option value="false">false</option>
                 </select>
                 
                 <label for="s">Web configuration </label>
-                <select name="webConf" value="<%=data.WebConfing %>" id="">
+                <select name="webConf" value="<%=data.WebConfing %>" >
                     <option value="true">true</option>
                     <option value="false">false</option>
                 </select>
@@ -34,15 +34,15 @@
                 <hr>
                 <h2>Database Setting</h2>
             <label for="s">Database Enable </label>
-            <select  name='databse_enable' value="<%=data.DB.CONF.ENABLE %>" id="">
+            <select  name='databse_enable' value="<%=data.DB.CONF.ENABLE %>" >
                 <option value="true">true</option>
                 <option value="false">false</option>
             </select>
             <br>
             <br>
             <label for="cars">Type Database</label>
-            <select name="dbtype" onchange="showDiv(this)" class="selecting">
-              <option selected="selected"><%=data.DB.CONF.TYPE %></option>
+            <select name="dbtype" onchange="showDiv(this)" id="selectingtype" class="selecting">
+              <option value="<%=data.DB.CONF.TYPE %>"><%=data.DB.CONF.TYPE %></option>
               <option value="mysql">mysql</option>
               <option value="postgres">postgres</option>
               <option value="sqlite3">sqlite3</option>
@@ -52,38 +52,38 @@
             <div id="sql">
                <br>
                 <label class="lablefr" for="s">Host</label>
-                <input type="text" id="s" value="<%=data.DB.CONF.HOST %>" name="hostdb">
+                <input type="text"  value="<%=data.DB.CONF.HOST %>" name="hostdb">
                 <br><br>
                  
                 <label class="lablefr"for="s">Port</label>
-                <input type="number" value="<%=data.DB.CONF.PORT %>" pattern="[0-9]+"  id="s" name="port" required>
+                <input type="number" value="<%=data.DB.CONF.PORT %>" pattern="[0-9]+"   name="port" required>
                 <br><br>
                  
                 <label class="lablefr" for="s">Database</label>
-                <input type="text" value="<%=data.DB.CONF.DATABASE %>" id="s" name="database">
+                <input type="text" value="<%=data.DB.CONF.DATABASE %>"  name="database">
                  <br><br>
                  
                 <label class="lablefr" for="s">Username</label>
-                <input type="text" id="s" value="<%=data.DB.CONF.USERNAME %>" name="username">
+                <input type="text"  value="<%=data.DB.CONF.USERNAME %>" name="username">
                 <br><br>
                  
                 <label class="lablefr" for="s">Password</label>
-                <input type="text" id="s" value="<%=data.DB.CONF.PASSWORD %>" name="password">
+                <input type="text"  value="<%=data.DB.CONF.PASSWORD %>" name="password">
                
             <br>
             </div>
             <div id="mongodb">
               <br>
               <label class="lablefr" for="s">Url mongoDB</label>
-              <input type="text" id="s" value="<%=data.DB.CONF.MONGO._URI %>" name="mongo_uri">
+              <input type="text"  value="<%=data.DB.CONF.MONGO._URI %>" name="mongo_uri">
               <br><br>
               <label class="lablefr" for="s">Database Name</label>
-              <input type="text" id="s" value="<%=data.DB.CONF.MONGO._DB %>" name="db_name_mongo">
+              <input type="text"  value="<%=data.DB.CONF.MONGO._DB %>" name="db_name_mongo">
               <br>
             </div>
             <div id="sqlite3">
                 <label class="lablefr" for="s">Sqlite3 Path</label>
-                <input type="text" id="s" value="<%=data.DB.CONF.Sqlite3.FilePath %>" name="path_sqlite">
+                <input type="text"  value="<%=data.DB.CONF.Sqlite3.FilePath %>" name="path_sqlite">
             <br>
 
             
@@ -114,22 +114,37 @@
     </div>
 </div>
 <script>
-function showDiv( element){
-    if (element.value == 'mysql' || element.value == 'postgres') {
+  var selectel = document.getElementById('selectingtype')
+  if (selectel.value == 'mysql' || selectel.value == 'postgres') {
+    A()
+  }else if(selectel.value == 'mongodb'){
+    B()
+  }else if(selectel.value == 'sqlite3'){
+    C()
+  }
+  function A(){
         document.getElementById('sql').style.display = 'block';
         document.getElementById('mongodb').style.display = 'none';
         document.getElementById('sqlite3').style.display = 'none';
-        console.log('asd');
-    } else if(element.value == 'mongodb') {
+  }
+  function B() {
         document.getElementById('mongodb').style.display = 'block';
         document.getElementById('sql').style.display = 'none';
         document.getElementById('sqlite3').style.display = 'none';
-         console.log('asd');
-    }
-    else if(element.value == 'sqlite3') {
-        document.getElementById('sqlite3').style.display = 'block';
+  }
+  function C() {
+    document.getElementById('sqlite3').style.display = 'block';
         document.getElementById('sql').style.display = 'none';
         document.getElementById('mongodb').style.display = 'none';
+  }
+function showDiv( element){
+    if (element.value == 'mysql' || element.value == 'postgres') {
+       A()
+    } else if(element.value == 'mongodb') {
+       B()
+    }
+    else if(element.value == 'sqlite3') {
+       C()
     }
     
 }

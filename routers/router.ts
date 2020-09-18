@@ -20,8 +20,8 @@ Route.post("/gf",await Controller.set("DefaultController", "show"))
  * 
  */
 
-Route.get("/webconfig",await Controller.set("ConfigController", "get"))
-Route.post("/webconfig/create",await Controller.set("ConfigController", "create")) 
+Route.get("/webconfig",await Controller.set("ConfigController/controller", "get"))
+Route.post("/webconfig/create",await Controller.set("ConfigController/controller", "create")) 
 
 
 /**

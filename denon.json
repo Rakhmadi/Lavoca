@@ -8,7 +8,7 @@
     },
     "watcher": {
       "interval": 350,
-      "exts": ["js", "jsx", "ts", "tsx", "json"],
+      "exts": ["js", "jsx", "ts", "tsx", "json","md",".env"],
       "match": ["*.*"],
       "skip": ["*/.git/*"],
       "legacy": false
