@@ -3,12 +3,14 @@ import {Controller} from '../../.core/controller___.ts'
 import Conf from '../../config.ts'
 export class controller extends Controller{
     public async get(ctx:any){
+   if (Conf.WebConfing) {
     if (Conf.WebConfing) {
       const conf = Conf
       ctx.response.body = await View.make(ctx,'configView/index',conf)
     } else {
       
     }
+   }
     }
     public async create(ctx:any){
       if (Conf.WebConfing) {
