@@ -9,15 +9,9 @@ import * as dejs from 'https://deno.land/x/dejs/mod.ts';
 
 export default async function runServApp(){
  
-let view = async(ctx:Context,file:string,params:any = []):Promise<string>=>{
-    const Rdn = await dejs.renderFileToString(`${Deno.cwd()}/res/view/${file}.ejs`,{BaseURL:ctx.request.url.origin,data:params})
-    return  Rdn
-  }
-  
   const port:number = Conf.PORT
   const app = new Application()
   let routeAr:any = await listrouter()
-
   // Logger
   app.use(async (ctx, next) => {
     await next();
@@ -26,15 +20,7 @@ let view = async(ctx:Context,file:string,params:any = []):Promise<string>=>{
   });
    
   app.use(async (ctx, next) => {
-      if (ctx.response.status == 404) {
-          ctx.response.body = await view(ctx,"error_page/404")
-       }else if(ctx.response.status == 200){
-           ctx.response.status = 200
-       }else{
-           
-       }
       
-  
       try {
         await next();
       } catch (err) { 

@@ -17,5 +17,4 @@
 db.link([example]);
 
 
-
 db.sync()

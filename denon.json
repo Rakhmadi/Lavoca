@@ -1,6 +1,7 @@
 {
   "$schema": "https://deno.land/x/denon/schema.json",
   "scripts": {
+    "watch":true,
     "start": {
       "cmd": "deno run -A --unstable app.ts",
       "desc": "run my app.ts file",
@@ -10,8 +11,8 @@
       "interval": 350,
       "exts": ["js", "jsx", "ts", "tsx", "json","md",".env"],
       "match": ["*.*"],
-      "skip": ["*/.git/*"],
-      "legacy": false
+      "skip": ["*/.git/*"]
+     
     }
   }
 }
